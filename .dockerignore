@@ -1,0 +1,16 @@
+.git
+.github
+.gitignore
+README.md
+
+**/node_modules
+**/dist
+
+**/.env
+**/.env.*
+
+**/coverage
+**/*.log
+
+.idea
+.vscode
