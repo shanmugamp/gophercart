@@ -1,4 +1,12 @@
-.PHONY: test test-race fmt vet build clean
+.PHONY: proto proto-lint proto-generate test test-race fmt vet
+
+proto-lint:
+	buf lint
+
+proto-generate:
+	buf generate
+
+proto: proto-lint proto-generate
 
 test:
 	go test ./...
@@ -11,9 +19,3 @@ fmt:
 
 vet:
 	go vet ./...
-
-build:
-	go build ./...
-
-clean:
-	go clean

@@ -1,13 +1,36 @@
 package handler
 
 import (
+	"encoding/json"
 	"net/http"
 )
 
-func HealthHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
+type HealthResponse struct {
+	Status string `json:"status"`
+}
 
-	w.WriteHeader(http.StatusOK)
+func Health(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set(
+		"Content-Type",
+		"application/json",
+	)
 
-	_, _ = w.Write([]byte(`{"status":"ok"}`))
+	_ = json.NewEncoder(w).Encode(
+		HealthResponse{
+			Status: "ok",
+		},
+	)
+}
+
+func Readiness(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set(
+		"Content-Type",
+		"application/json",
+	)
+
+	_ = json.NewEncoder(w).Encode(
+		HealthResponse{
+			Status: "ready",
+		},
+	)
 }

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package gophercart.report.v1;
+
+option go_package = "github.com/shanmugamp/gophercart/gen/go/report/v1;reportv1";
+
+service ReportService {
+  rpc GetSalesSummary(GetSalesSummaryRequest) returns (GetSalesSummaryResponse);
+}
+
+message GetSalesSummaryRequest {
+  string from_date = 1;
+  string to_date = 2;
+}
+
+message GetSalesSummaryResponse {
+  SalesSummary summary = 1;
+}
+
+message SalesSummary {
+  int64 total_orders = 1;
+  int64 successful_orders = 2;
+  int64 cancelled_orders = 3;
+  int64 total_revenue_minor = 4;
+  string currency = 5;
+}

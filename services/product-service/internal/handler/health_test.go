@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -10,13 +11,21 @@ func TestHealthHandler(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/health", nil)
 	response := httptest.NewRecorder()
 
-	HealthHandler(response, req)
+	Health(response, req)
 
 	if response.Code != http.StatusOK {
-		t.Errorf("Expected status code %d, got %d", http.StatusOK, response.Code)
+		t.Errorf("expected status code %d, got %d", http.StatusOK, response.Code)
 	}
 
-	if response.Body.String() != `{"status":"ok"}` {
-		t.Errorf("Expected body `{'status':'ok'}`, got `%s`", response.Body.String())
+	var body struct {
+		Status string `json:"status"`
+	}
+
+	if err := json.Unmarshal(response.Body.Bytes(), &body); err != nil {
+		t.Fatalf("expected valid JSON response, got %q: %v", response.Body.String(), err)
+	}
+
+	if body.Status != "ok" {
+		t.Errorf("expected status %q, got %q", "ok", body.Status)
 	}
 }

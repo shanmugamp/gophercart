@@ -3,32 +3,38 @@ package main
 import (
 	"context"
 	"errors"
-	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
-	"github.com/shanmugamp/gophercart/services/product-service/internal/handler"
+	"log/slog"
+
+	"github.com/shanmugamp/gophercart/services/product-service/internal/config"
+	"github.com/shanmugamp/gophercart/services/product-service/internal/server"
 )
 
 func main() {
+	cfg, err := config.Load()
+	if err != nil {
+		panic(err)
+	}
 
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("/health", handler.HealthHandler)
-	logger := slog.New(
-		slog.NewJSONHandler(os.Stdout, nil),
+	logger := config.NewLogger(
+		cfg.App.LogLevel,
 	)
 
-	logger.Info("starting product service")
+	logger.Info(
+		"starting service",
+		slog.String("service", cfg.App.Name),
+		slog.String("environment", cfg.App.Environment),
+	)
 
-	server := &http.Server{
-		Addr:              ":8080",
-		Handler:           mux,
-		ReadHeaderTimeout: 5 * time.Second,
-	}
+	httpServer := server.NewHTTPServer(
+		cfg.HTTP.Host,
+		cfg.HTTP.Port,
+		logger,
+	)
 
 	ctx, stop := signal.NotifyContext(
 		context.Background(),
@@ -38,14 +44,19 @@ func main() {
 	defer stop()
 
 	go func() {
-		logger.Info("product service listening",
-			slog.String("address", server.Addr),
+		logger.Info(
+			"http server started",
+			slog.String(
+				"address",
+				httpServer.Server.Addr,
+			),
 		)
 
-		if err := server.ListenAndServe(); err != nil &&
+		if err := httpServer.Server.ListenAndServe(); err != nil &&
 			!errors.Is(err, http.ErrServerClosed) {
 
-			logger.Error("server failed",
+			logger.Error(
+				"http server failed",
 				slog.Any("error", err),
 			)
 
@@ -59,15 +70,20 @@ func main() {
 
 	shutdownCtx, cancel := context.WithTimeout(
 		context.Background(),
-		10*time.Second,
+		cfg.HTTP.ShutdownTimeout,
 	)
 	defer cancel()
 
-	if err := server.Shutdown(shutdownCtx); err != nil {
-		logger.Error("graceful shutdown failed",
+	if err := httpServer.Server.Shutdown(
+		shutdownCtx,
+	); err != nil {
+		logger.Error(
+			"graceful shutdown failed",
 			slog.Any("error", err),
 		)
+
+		return
 	}
 
-	logger.Info("product service stopped")
+	logger.Info("service stopped")
 }
