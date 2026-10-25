@@ -46,7 +46,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/product-service.Dockerfile
+          file: infrastructure/docker/product-service.Dockerfile
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
