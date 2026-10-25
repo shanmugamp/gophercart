@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version-file: services/product-service/go.mod
+          go-version-file: backend/services/product-service/go.mod
       - name: Run tests
-        working-directory: services/product-service
+        working-directory: backend/services/product-service
         run: go test ./...
 
   image:
@@ -46,7 +46,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/product-service.Dockerfile
+          file: infrastructure/docker/product-service.Dockerfile
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

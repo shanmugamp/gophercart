@@ -796,7 +796,7 @@ const file_product_v1_product_proto_rawDesc = "" +
 	"\fListProducts\x12*.gophercart.product.v1.ListProductsRequest\x1a+.gophercart.product.v1.ListProductsResponse\x12j\n" +
 	"\rCreateProduct\x12+.gophercart.product.v1.CreateProductRequest\x1a,.gophercart.product.v1.CreateProductResponse\x12j\n" +
 	"\rUpdateProduct\x12+.gophercart.product.v1.UpdateProductRequest\x1a,.gophercart.product.v1.UpdateProductResponse\x12j\n" +
-	"\rDeleteProduct\x12+.gophercart.product.v1.DeleteProductRequest\x1a,.gophercart.product.v1.DeleteProductResponseBHZFgithub.com/shanmugamp/gophercart/contracts/gen/go/product/v1;productv1b\x06proto3"
+	"\rDeleteProduct\x12+.gophercart.product.v1.DeleteProductRequest\x1a,.gophercart.product.v1.DeleteProductResponseBPZNgithub.com/shanmugamp/gophercart/backend/contracts/gen/go/product/v1;productv1b\x06proto3"
 
 var (
 	file_product_v1_product_proto_rawDescOnce sync.Once

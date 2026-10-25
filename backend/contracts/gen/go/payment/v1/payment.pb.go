@@ -505,7 +505,7 @@ const file_payment_v1_payment_proto_rawDesc = "" +
 	"\rCreatePayment\x12+.gophercart.payment.v1.CreatePaymentRequest\x1a,.gophercart.payment.v1.CreatePaymentResponse\x12a\n" +
 	"\n" +
 	"GetPayment\x12(.gophercart.payment.v1.GetPaymentRequest\x1a).gophercart.payment.v1.GetPaymentResponse\x12j\n" +
-	"\rRefundPayment\x12+.gophercart.payment.v1.RefundPaymentRequest\x1a,.gophercart.payment.v1.RefundPaymentResponseBHZFgithub.com/shanmugamp/gophercart/contracts/gen/go/payment/v1;paymentv1b\x06proto3"
+	"\rRefundPayment\x12+.gophercart.payment.v1.RefundPaymentRequest\x1a,.gophercart.payment.v1.RefundPaymentResponseBPZNgithub.com/shanmugamp/gophercart/backend/contracts/gen/go/payment/v1;paymentv1b\x06proto3"
 
 var (
 	file_payment_v1_payment_proto_rawDescOnce sync.Once

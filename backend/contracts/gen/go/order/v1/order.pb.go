@@ -678,7 +678,7 @@ const file_order_v1_order_proto_rawDesc = "" +
 	"\n" +
 	"ListOrders\x12&.gophercart.order.v1.ListOrdersRequest\x1a'.gophercart.order.v1.ListOrdersResponse\x12`\n" +
 	"\vCreateOrder\x12'.gophercart.order.v1.CreateOrderRequest\x1a(.gophercart.order.v1.CreateOrderResponse\x12`\n" +
-	"\vCancelOrder\x12'.gophercart.order.v1.CancelOrderRequest\x1a(.gophercart.order.v1.CancelOrderResponseBDZBgithub.com/shanmugamp/gophercart/contracts/gen/go/order/v1;orderv1b\x06proto3"
+	"\vCancelOrder\x12'.gophercart.order.v1.CancelOrderRequest\x1a(.gophercart.order.v1.CancelOrderResponseBLZJgithub.com/shanmugamp/gophercart/backend/contracts/gen/go/order/v1;orderv1b\x06proto3"
 
 var (
 	file_order_v1_order_proto_rawDescOnce sync.Once
