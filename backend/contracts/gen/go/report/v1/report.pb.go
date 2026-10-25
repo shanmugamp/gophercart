@@ -210,7 +210,7 @@ const file_report_v1_report_proto_rawDesc = "" +
 	"\x13total_revenue_minor\x18\x04 \x01(\x03R\x11totalRevenueMinor\x12\x1a\n" +
 	"\bcurrency\x18\x05 \x01(\tR\bcurrency2\x7f\n" +
 	"\rReportService\x12n\n" +
-	"\x0fGetSalesSummary\x12,.gophercart.report.v1.GetSalesSummaryRequest\x1a-.gophercart.report.v1.GetSalesSummaryResponseBFZDgithub.com/shanmugamp/gophercart/contracts/gen/go/report/v1;reportv1b\x06proto3"
+	"\x0fGetSalesSummary\x12,.gophercart.report.v1.GetSalesSummaryRequest\x1a-.gophercart.report.v1.GetSalesSummaryResponseBNZLgithub.com/shanmugamp/gophercart/backend/contracts/gen/go/report/v1;reportv1b\x06proto3"
 
 var (
 	file_report_v1_report_proto_rawDescOnce sync.Once

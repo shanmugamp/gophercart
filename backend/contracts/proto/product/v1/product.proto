@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gophercart.product.v1;
 
-option go_package = "github.com/shanmugamp/gophercart/contracts/gen/go/product/v1;productv1";
+option go_package = "github.com/shanmugamp/gophercart/backend/contracts/gen/go/product/v1;productv1";
 
 service ProductService {
   rpc GetProduct(GetProductRequest) returns (GetProductResponse);

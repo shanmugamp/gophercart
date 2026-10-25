@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gophercart.payment.v1;
 
-option go_package = "github.com/shanmugamp/gophercart/contracts/gen/go/payment/v1;paymentv1";
+option go_package = "github.com/shanmugamp/gophercart/backend/contracts/gen/go/payment/v1;paymentv1";
 
 service PaymentService {
   rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentResponse);

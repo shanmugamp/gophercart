@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gophercart.report.v1;
 
-option go_package = "github.com/shanmugamp/gophercart/contracts/gen/go/report/v1;reportv1";
+option go_package = "github.com/shanmugamp/gophercart/backend/contracts/gen/go/report/v1;reportv1";
 
 service ReportService {
   rpc GetSalesSummary(GetSalesSummaryRequest) returns (GetSalesSummaryResponse);

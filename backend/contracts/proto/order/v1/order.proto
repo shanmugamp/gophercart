@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gophercart.order.v1;
 
-option go_package = "github.com/shanmugamp/gophercart/contracts/gen/go/order/v1;orderv1";
+option go_package = "github.com/shanmugamp/gophercart/backend/contracts/gen/go/order/v1;orderv1";
 
 service OrderService {
   rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);

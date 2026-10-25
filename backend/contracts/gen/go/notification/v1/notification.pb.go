@@ -159,7 +159,7 @@ const file_notification_v1_notification_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12\x1a\n" +
 	"\baccepted\x18\x02 \x01(\bR\baccepted2\x7f\n" +
 	"\x13NotificationService\x12h\n" +
-	"\tSendEmail\x12,.gophercart.notification.v1.SendEmailRequest\x1a-.gophercart.notification.v1.SendEmailResponseBRZPgithub.com/shanmugamp/gophercart/contracts/gen/go/notification/v1;notificationv1b\x06proto3"
+	"\tSendEmail\x12,.gophercart.notification.v1.SendEmailRequest\x1a-.gophercart.notification.v1.SendEmailResponseBZZXgithub.com/shanmugamp/gophercart/backend/contracts/gen/go/notification/v1;notificationv1b\x06proto3"
 
 var (
 	file_notification_v1_notification_proto_rawDescOnce sync.Once
