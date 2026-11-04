@@ -2,7 +2,6 @@ package product
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 	"time"
 
@@ -32,18 +31,18 @@ type Product struct {
 func NewProduct(name string, description string, priceMinor int64, currency string, stock int32) (*Product, error) {
 	name = strings.TrimSpace(name)
 	if name == "" {
-		return nil, fmt.Errorf("%s", ErrNameRequired)
+		return nil, ErrNameRequired
 	}
 
 	if priceMinor < 0 {
-		return nil, fmt.Errorf("%s", ErrPriceInvalid)
+		return nil, ErrPriceInvalid
 	}
 	currency = strings.TrimSpace(currency)
 	if currency == "" {
-		return nil, fmt.Errorf("%s", ErrCurrencyRequired)
+		return nil, ErrCurrencyRequired
 	}
 	if stock < 0 {
-		return nil, fmt.Errorf("%s", ErrStockInvalid)
+		return nil, ErrStockInvalid
 	}
 	now := time.Now().UTC()
 	return &Product{
